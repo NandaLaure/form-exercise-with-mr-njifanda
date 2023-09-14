@@ -1,20 +1,53 @@
-<body>
-    <div class="container">
-        <div class="img">
-            <img src="/assets/SportsCo.png" alt="">
-        </div>
-        <form action="">
-            <h1> Welcome Back! </h1>
-            <div class="form-group">
-                <label for="">Email id</label>
-                <input type="text" class="form-control" required>
+<main>
+
+    <body class="body">
+      <div class="container">
+        
+          <img src="/assets/SportsCo.png" alt="">
+      
+      </div>
+      <div class="container">
+    
+    
+        <form class="form">
+          <div class="form-group">
+            <h2> Welcome Back!</h2>
+    <p>Track your health with SportsCo</p>
+          </div>
+    
+         
+          <div class="form-group">
+            <label for="">Email </label>
+            <input type="text" name="email" id="email" placeholder="you@email.com" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" id="password" name="password" placeholder="By.YoU02" class="form-control">
+          </div>
+          <div class="form-group4">
+            <div class="rem">
+
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember me</label>
             </div>
-            <div class="form-group">
-                <label for="">Password</label>
-                <input type="text" class="form-control">
-            </div>
-            <p>Already have an account?</p>
-            <a href="#" routerLink='/page1'>Login</a>
-            </form>
+            <a routerLink="/forgot">Forgot Password?</a>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Login">
+          </div>
+          <div class="form-group3">
+    
+            <hr>
+            <p>OR</p>
+            <hr>
+          </div>
+    <div class="form-group3">
+      <button><img src="/assets/Google.svg" alt=""></button><button><img src="/assets/Facebook.svg" alt=""></button><button><img src="/assets/Apple.svg" alt=""></button>
     </div>
-            
+    <p class="member">Already a member? <a  routerLink="/page1" >Create an account</a></p>
+         
+        </form>
+      </div>
+    </body> 
+  
+  </main>

@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 36.8rem;
+   width: 50rem;
+   border-radius: 3px;
+   
+}
+.container{
+    width: 100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container img{
+    width: 100%;
+    height:100%;
+}
+.container .form{
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: linear-gradient( rgb(158, 203, 247) , 50% , rgb(106, 149, 192));
+
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    justify-content: center;
+    height: 4rem;
+    
+
+}
+h2{
+    margin: 3px 0 ;
+}
+.form-group3{
+    display: flex;
+    width: 15rem;
+    justify-content: space-between;
+    align-items: center;
+}
+hr{
+    width: 6rem;
+    height: 2px;
+    background-color: black;
+    border: 0;
+}
+input{
+    width: 15rem;
+    height: 2rem;
+    border-radius: 4px;
+    border: 0;
+    margin: 2px 0;
+    padding: 0 5px;
+    outline: none;
+}
+.form-group2{
+    width: 15rem;
+}
+input[type=submit]{
+    background-color: rgb(56, 56, 247);
+    color: white;
+}
+input[type=submit]:hover{
+    background-color: rgb(245, 70, 70);
+}
+button{
+    width: 4.5rem;
+    height: 2rem;
+    border-radius: 4px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+
+}
+button:hover{
+    background-color: lightblue;
+}
+a{
+    text-decoration: none;
+
+}
+.rem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-group4{
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    align-items: center;
+    height: 1rem;
+    margin: 0;
+}
+input[type="checkbox"]{
+    width: 15px;
+}

@@ -8,6 +8,7 @@ import { Page2Component } from './page2/page2.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

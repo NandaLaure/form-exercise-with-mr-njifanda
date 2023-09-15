@@ -70,7 +70,7 @@ onSubmit(): void {
   const save = this.authservice.register(this.signupForm.value);
   if (!save.error) {
 
-    this.router.navigate(['dashboard'], {
+    this.router.navigate(['page2'], {
 
       queryParams: {id: save.data.id}
     })

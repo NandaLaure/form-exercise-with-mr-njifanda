@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 
@@ -13,7 +15,33 @@ export class Page1Component implements OnInit {
   title = 'Page1';
 
   signupForm!: FormGroup
-  constructor(private formbuilder: FormBuilder) { }
+  saveError: string=''
+
+  constructor(
+    private formbuilder: FormBuilder,
+    private authservice: AuthService,
+    private router: Router
+    ) { }
+
+    private confirmPassword(password: string, confirm_password: string) {
+      return (formGroup: FormGroup) => {
+  
+        const old_password = formGroup.controls[password];
+        const new_password = formGroup.controls[confirm_password];
+        if (old_password.errors && !new_password.errors?.['confirmed_validator']) {
+          return ;
+        }
+  
+        if (old_password.value !== new_password.value) {
+  
+          new_password.setErrors({ confirmed_validator: true })
+        } else {
+  
+          new_password.setErrors(null)
+        }
+      }
+    }
+
   ngOnInit(): void {
 
     this.signupForm = this.formbuilder.group({
@@ -29,16 +57,28 @@ export class Page1Component implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required,
-        Validators.maxLength(8),
-        Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
-      ])
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,10}$/),
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,10}$/),
+      ]),
   })
 }
-onsubmit(){
-  console.log(this.signupForm.value);
+onSubmit(): void {
 
+  const save = this.authservice.register(this.signupForm.value);
+  if (!save.error) {
+
+    this.router.navigate(['dashboard'], {
+
+      queryParams: {id: save.data.id}
+    })
+  } else {
+
+    this.saveError = save.message
+  }
 }
-
 
 
 }

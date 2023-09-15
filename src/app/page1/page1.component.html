@@ -8,8 +8,7 @@
     </div>
     <div class="container">
 
-
-      <form [formGroup]="signupForm" (ngSubmit)="onsubmit()" class="form" novalidate>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form" novalidate>
         <div class="form-group">
           <h2> Create an Account</h2>
           <p>Provide your details</p>
@@ -30,6 +29,7 @@
             </p>
           </div>
         </div>
+
         <div class="form-group">
           <label for="">Email </label>
           <input type="text" name="email" id="email" placeholder="you@email.com" class="form-control"
@@ -43,6 +43,7 @@
             </p>
           </div>
         </div>
+
         <div class="form-group">
           <label for="">Password</label>
           <input type="password" id="password" name="password" placeholder="By.YoU02" class="form-control"
@@ -51,11 +52,12 @@
             <p *ngIf="signupForm.controls['password'].errors?.['required']">
               this field is required
             </p>
-            <p *ngIf="signupForm.controls['password'].errors?.['maxlength']">
-              maximum characters is 8
+            <p *ngIf="signupForm.controls['password'].errors?.['pattern']">
+              The password should have atleast one number and one letter
             </p>
           </div>
         </div>
+
         <div class="form-group2">
           By signing up i agree to the <a href="">terms and conditions</a> and <a href="">privacy policy</a>
         </div>
@@ -72,8 +74,7 @@
           <button><img src="/assets/Google.svg" alt=""></button><button><img src="/assets/Facebook.svg"
               alt=""></button><button><img src="/assets/Apple.svg" alt=""></button>
         </div>
-        <p class="member">Already a member? <a routerLink="/page2">Sign in</a></p>
-
+        <p class="member">Already a member? <a routerLink="/page2">Sign In</a></p>
       </form>
     </div>
   </body>

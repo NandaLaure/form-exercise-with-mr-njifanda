@@ -7,6 +7,7 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -15,9 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Page1Component,
     Page2Component,
     ForgotpassComponent,
-   
-    
-   
+    DashboardComponent,
+  
   ],
   imports: [
     BrowserModule,

@@ -23,24 +23,24 @@ export class Page1Component implements OnInit {
     private router: Router
     ) { }
 
-    private confirmPassword(password: string, confirm_password: string) {
-      return (formGroup: FormGroup) => {
+    // private confirmPassword(password: string, confirm_password: string) {
+    //   return (formGroup: FormGroup) => {
   
-        const old_password = formGroup.controls[password];
-        const new_password = formGroup.controls[confirm_password];
-        if (old_password.errors && !new_password.errors?.['confirmed_validator']) {
-          return ;
-        }
+    //     const old_password = formGroup.controls[password];
+    //     const new_password = formGroup.controls[confirm_password];
+    //     if (old_password.errors && !new_password.errors?.['confirmed_validator']) {
+    //       return ;
+    //     }
   
-        if (old_password.value !== new_password.value) {
+    //     if (old_password.value !== new_password.value) {
   
-          new_password.setErrors({ confirmed_validator: true })
-        } else {
+    //       new_password.setErrors({ confirmed_validator: true })
+    //     } else {
   
-          new_password.setErrors(null)
-        }
-      }
-    }
+    //       new_password.setErrors(null)
+    //     }
+    //   }
+    // }
 
   ngOnInit(): void {
 
@@ -67,10 +67,7 @@ onSubmit(): void {
   if (!save.error) {
 
     localStorage.setItem('auth', JSON.stringify(save.data))
-    this.router.navigate(['dashboard'], {
-
-      queryParams: {id: save.data?.id}
-    })
+    
   } else {
 
     this.saveError = save.message

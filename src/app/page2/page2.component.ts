@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-page2',
@@ -11,13 +11,21 @@ import { Router } from '@angular/router';
 export class Page2Component {
   loginForm: FormGroup = new FormGroup({});
   loginError: string = '';
+  error_message: string |null = null
 
   constructor (
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
-  ) {}
-
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams.subscribe((query:any)=> {
+      if (query.message) {
+        this.error_message = query.message
+      }
+    })
+  }
+  
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
@@ -49,13 +57,15 @@ export class Page2Component {
     } else {
 console.log(login.data);
 
-      this.router.navigate(['dashboard'], {
-
-        queryParams: {id: login.data?.id}
-      })
+      }
     }
   }
-}
 
+
+
+
+ 
+  
+  
 
 

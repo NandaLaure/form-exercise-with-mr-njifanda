@@ -47,6 +47,7 @@ export class Page2Component {
       this.loginError = login.message;
       this.clearError();
     } else {
+console.log(login.data);
 
       this.router.navigate(['dashboard'], {
 
@@ -55,3 +56,6 @@ export class Page2Component {
     }
   }
 }
+
+
+

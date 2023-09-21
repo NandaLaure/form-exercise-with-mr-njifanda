@@ -59,10 +59,6 @@ export class Page1Component implements OnInit {
         Validators.required,
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,10}$/),
       ]),
-      confirmPassword: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,10}$/),
-      ]),
   })
 }
 onSubmit(): void {
@@ -70,9 +66,10 @@ onSubmit(): void {
   const save = this.authservice.register(this.signupForm.value);
   if (!save.error) {
 
-    this.router.navigate(['page2'], {
+    localStorage.setItem('auth', JSON.stringify(save.data))
+    this.router.navigate(['dashboard'], {
 
-      queryParams: {id: save.data.id}
+      queryParams: {id: save.data?.id}
     })
   } else {
 

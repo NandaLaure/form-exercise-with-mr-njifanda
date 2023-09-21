@@ -50,7 +50,7 @@ export class AuthService {
 
       return {
         error: true,
-        message: checkEmail
+        message: 'checkEmail'
       }
     }
 

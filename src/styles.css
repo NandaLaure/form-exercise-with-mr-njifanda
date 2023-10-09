@@ -68,7 +68,7 @@ hr{
 }
 input{
     width: 15rem;
-    height: 2rem;
+    height: 1.5rem;
     border-radius: 4px;
     border: 0;
     margin: 2px 0;
@@ -78,12 +78,28 @@ input{
 .form-group2{
     width: 15rem;
 }
-button[type=submit]{
+input[type=submit]{
+    width: 15rem;
+    height: 2rem;
     background-color: rgb(56, 56, 247);
     color: white;
-    width: 100%;
+    
 }
-button[type=submit]:hover{
+.red{
+    color: rgb(241, 59, 59);
+    font-weight: 600;
+}
+.black{
+    font-weight: 200;
+    color: black;
+}
+input[type=submit]:disabled{
+    background-color: gray;
+}
+input[type=submit]:disabled:hover{
+    background-color: gray;
+}
+input[type=submit]:hover{
     background-color: rgb(245, 70, 70);
 }
 button{

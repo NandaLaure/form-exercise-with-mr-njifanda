@@ -11,21 +11,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class Page2Component {
   loginForm: FormGroup = new FormGroup({});
   loginError: string = '';
-  error_message: string |null = null
+  error_message: string | null = null
 
-  constructor (
+  constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.route.queryParams.subscribe((query:any)=> {
+    this.route.queryParams.subscribe((query: any) => {
       if (query.message) {
         this.error_message = query.message
       }
     })
   }
-  
+
   ngOnInit(): void {
 
     this.loginForm = this.formBuilder.group({
@@ -40,10 +40,10 @@ export class Page2Component {
     })
   }
 
-  private clearError (): void {
-     setTimeout(() => {
+  private clearError(): void {
+    setTimeout(() => {
       this.loginError = ''
-     }, 2000);
+    }, 3000);
   }
 
   onSubmit() {
@@ -55,17 +55,21 @@ export class Page2Component {
       this.loginError = login.message;
       this.clearError();
     } else {
-console.log(login.data);
+      console.log(login.data);
+      localStorage.setItem('auth', JSON.stringify(login.data))
+      this.router.navigate(['dashboard'], {
+  
+        queryParams: {id: login.data?.id}
 
-      }
-    }
+    })
   }
+}
 
 
 
 
- 
-  
-  
 
 
+
+
+}

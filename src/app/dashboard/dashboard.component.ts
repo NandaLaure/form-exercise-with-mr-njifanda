@@ -11,12 +11,17 @@ import { LocalStorageService } from '../services/local-storage.service';
 })
 export class DashboardComponent implements OnInit{
   auth!: user;
+  error_message: string |null = null
+  route: any;
 
   constructor (
     private authservice:AuthService,
     private router:Router,
     private localstorage: LocalStorageService
-  ) {}
+  ) {
+   
+     
+  }
   ngOnInit(): void {
   
     const auth = this.authservice.auth();

@@ -16,8 +16,8 @@
 
         <div class="form-group">
           <label for=""> Your Name</label>
-          <input type="text" name="name" id="name" placeholder="first last" class="form-control" formControlName="name" required>
-          <div *ngIf="signupForm.controls['name'].dirty || signupForm.controls['name'].touched">
+          <input class="form-control"  type="text" name="name" id="name" placeholder="first last"  formControlName="name" required>
+          <div class="red" *ngIf="signupForm.controls['name'].dirty || signupForm.controls['name'].touched">
             <p *ngIf="signupForm.controls['name'].errors?.['required']">
               this field is required
             </p>
@@ -34,11 +34,11 @@
           <label for="">Email </label>
           <input type="text" name="email" id="email" placeholder="you@email.com" class="form-control"
             formControlName="email" required>
-          <div *ngIf="signupForm.controls['email'].dirty || signupForm.controls['email'].touched">
+          <div class="red" *ngIf="signupForm.controls['email'].dirty || signupForm.controls['email'].touched">
             <p *ngIf="signupForm.controls['email'].errors?.['required']">
               this field is required
             </p>
-            <p *ngIf="signupForm.controls['email'].errors?.['email']">
+            <p *ngIf="signupForm.controls['email'].errors?.['pattern']">
               Please enter a valid email
             </p>
           </div>
@@ -48,7 +48,7 @@
           <label for="">Password</label>
           <input type="password" id="password" name="password" placeholder="By.YoU02" class="form-control"
             formControlName="password"required>
-          <div *ngIf="signupForm.controls['password'].dirty || signupForm.controls['password'].touched">
+          <div class="red" *ngIf="signupForm.controls['password'].dirty || signupForm.controls['password'].touched">
             <p *ngIf="signupForm.controls['password'].errors?.['required']">
               this field is required
             </p>
@@ -62,7 +62,7 @@
           By signing up i agree to the <a href="">terms and conditions</a> and <a href="">privacy policy</a>
         </div>
         <div class="form-group">
-          <button type="submit" [disabled]="signupForm.invalid"> Create an Account </button>
+          <input type="submit" value="Create account" [disabled]="signupForm.controls['password'].invalid || signupForm.controls['email'].invalid" >
         </div>
         <div class="form-group3">
 

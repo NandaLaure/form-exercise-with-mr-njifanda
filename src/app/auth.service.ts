@@ -42,7 +42,14 @@ export class AuthService {
 
     return created_at;
   }
-
+private passencrypt(password : string): any{
+ const pass = window.btoa(password)
+ return pass
+}
+private passdecrypt(password: string): any{
+  const pass2 = window.atob(password)
+  return pass2
+}
   register (user: any) {
 
     const checkEmail = this.emailExist(user.email);
@@ -53,8 +60,10 @@ export class AuthService {
         message: 'checkEmail'
       }
     }
-
+    
+    
     let users: Array<user> = this.localstorage.select('users') ?? [];
+    user['password'] = this.passencrypt(user.password)
     user['id'] = Date.now();
     user['created_at'] = this.getCurrentDate();
     delete user.confirm_password;
@@ -78,7 +87,10 @@ export class AuthService {
       for (let i = 0; i < users.length; i++) {
 
         const user = users[i];
-        if (user.email == email && user.password == password) {
+        console.log(user.password);
+        
+        
+        if (user.email == email && this.passdecrypt(user.password) == password) {
       
           login_user = user;
           break
